@@ -13,7 +13,7 @@ jobs:
       - image: cimg/openjdk:11.0
 
 
-    working_directory: ~/JsonPlaceholder
+    
 
     steps:
       # Checkout the code as the first step.
