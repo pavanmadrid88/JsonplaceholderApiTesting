@@ -23,7 +23,7 @@ jobs:
           name: Test
           command: mvn test
       - store_test_results:
-          path: '**/cucumber.json'
+          path: ~/target/cucumber-reports
 
 workflows:
   # Below is the definition of your workflow.
