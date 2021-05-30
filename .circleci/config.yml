@@ -27,6 +27,9 @@ jobs:
       - store_test_results:
           path: target
 
+      - store_artifacts:
+          path: reports
+
 workflows:
   # Below is the definition of your workflow.
   # Inside the workflow, you provide the jobs you want to run, e.g this workflow runs the build-and-test job above.
