@@ -22,10 +22,10 @@ jobs:
       # Then run your tests!
       - run:
           name: Test
-          command: mvn clean install
+          command: mvn clean test
 
       - store_test_results:
-          path: /home/circleci/JsonPlaceholder/target/cucumber-reports/cucumber.json
+          path: JsonPlaceholder/target/cucumber-reports/cucumber.json
 
 workflows:
   # Below is the definition of your workflow.
