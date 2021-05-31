@@ -41,13 +41,13 @@ public class UsersApi extends BaseService {
 		TestUtils.validateResponseStatusCode(response, Integer.valueOf(expectedResponseStatusCode));
 	}
 
-	@And("userId retrieval should be {string} for username {string}")
-	public static void userIdRetrieval(String expectedRetrivalStatus,String userName) {
+	@And("userId retrieval should {string} for username {string}")
+	public static void userIdRetrieval(String expectedRetrievalStatus,String userName) {
 		try {
 			usersResponsePojo = response.getBody().as(UsersResponsePojo[].class);
 			logger.info("userNameFoundStatus:" + userNameFoundStatus + " for userName:" + userName);
 			logger.info("userNameFoundStatus:" + userNameFoundStatus);
-			switch (expectedRetrivalStatus) {
+			switch (expectedRetrievalStatus) {
 
 			case "PASS":
 				userId = usersResponsePojo[0].getId();

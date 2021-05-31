@@ -15,4 +15,5 @@
 ### Reports
 The cucumber reporting plugin is integrated with maven and generates a report in both HTML and JSON format.
 #### Cucumber HTML report
-The HTML report gives a graphical representation of the test results. The test results can be viewed by features, scenarios or steps. 
+The HTML report gives a graphical representation of the test results. The test results can be viewed by features, scenarios or steps.
+![cucumber-overview-features-html](readme-files/images/cucumber-_features.JPG)

@@ -7,10 +7,10 @@ Feature: Posts Api tests
     When user id is retrieved for username "<userName>"
     And posts api is invoked for username "<userName>"
     Then response status code should be "<statusCode>"
-    And postId retrieval should be "<postIdRetrivalStatus>" for username "<userName>"
+    And postId retrieval should "<postIdRetrievalStatus>" for username "<userName>"
 
-    Examples: 
-      | userName | statusCode | postIdRetrivalStatus |
+    Examples:
+      | userName | statusCode | postIdRetrievalStatus |
       | Delphine |        200 | PASS                 |
       | Bret     |        200 | PASS                 |   
       | Pavan    |        200 | FAIL                 |

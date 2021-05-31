@@ -34,13 +34,13 @@ public class PostsApi extends BaseService {
         response = restDriver.getRequest(endPoint,queryParams);
     }
 
-    @And("postId retrieval should be {string} for username {string}")
-    public void responsePostsIdRetrieval(String expectedPostIdRetrivalStatus,String userName) {
+    @And("postId retrieval should {string} for username {string}")
+    public void responsePostsIdRetrieval(String expectedPostIdRetrievalStatus,String userName) {
         postsResponsePojo = response.getBody().as(PostsResponsePojo[].class);
         postIdList = new ArrayList<Integer>();
 
 
-        switch (expectedPostIdRetrivalStatus){
+        switch (expectedPostIdRetrievalStatus){
             case "PASS":
                 Assert.assertTrue(postsResponsePojo.length > 0);
                 logger.info("Number of Posts for userName:" + userName + " is :" + postsResponsePojo.length);

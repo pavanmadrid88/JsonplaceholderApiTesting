@@ -41,7 +41,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <projectName>Mobiquity - Assignment</projectName>
+                            <projectName>Jsonplaceholder-Api-Tests</projectName>
                             <skip>false</skip>
                             <outputDirectory>reports/html-reports</outputDirectory>
                             <inputDirectory>target/cucumber-reports</inputDirectory>
