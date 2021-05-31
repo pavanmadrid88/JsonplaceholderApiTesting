@@ -1,7 +1,8 @@
 Feature: Posts Api tests
 
   @posts
-  Scenario Outline: Posts details should be retrieved only for valid usernames
+  Scenario Outline: Posts details should be retrieved only for valid usernames.
+
     Given a user with username "<userName>"
     And the username "<userName>" validity is determined
     When user id is retrieved for username "<userName>"
@@ -11,6 +12,6 @@ Feature: Posts Api tests
 
     Examples:
       | userName | statusCode | postIdRetrievalStatus |
-      | Delphine |        200 | PASS                 |
-      | Bret     |        200 | PASS                 |   
-      | Pavan    |        200 | FAIL                 |
+      | Delphine | 200        | PASS                  |
+      | Bret     | 200        | PASS                  |
+      | Pavan    | 200        | FAIL                  |
