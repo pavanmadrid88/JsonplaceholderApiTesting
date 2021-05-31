@@ -21,7 +21,7 @@ public class PostsApi extends BaseService {
     private static Logger logger = LoggerFactory.getLogger(PostsApi.class);
     private int userId = 0;
     private PostsResponsePojo[] postsResponsePojo;
-    public static List postIdList;
+    public static List<Integer> postIdList;
 
 
     @When("posts api is invoked for username {string}")
@@ -34,14 +34,14 @@ public class PostsApi extends BaseService {
         response = restDriver.getRequest(endPoint,queryParams);
     }
 
-    @And("postId retrieval should be successful for username {string}")
-    public void responsePostsIdRetrieval(String userName) {
+    @And("postId retrieval should be {string} for username {string}")
+    public void responsePostsIdRetrieval(String expectedPostIdRetrivalStatus,String userName) {
         postsResponsePojo = response.getBody().as(PostsResponsePojo[].class);
-        postIdList = new ArrayList();
+        postIdList = new ArrayList<Integer>();
 
 
-        switch (UsersApi.userNameFoundStatus){
-            case 1:
+        switch (expectedPostIdRetrivalStatus){
+            case "PASS":
                 Assert.assertTrue(postsResponsePojo.length > 0);
                 logger.info("Number of Posts for userName:" + userName + " is :" + postsResponsePojo.length);
                 for(PostsResponsePojo ele:postsResponsePojo){
@@ -52,7 +52,7 @@ public class PostsApi extends BaseService {
                 }
                 logger.info("For user ID:" + UsersApi.userId + "; Here are the Post Ids:" + postIdList );
                 break;
-            case 0:
+            case "FAIL":
                 Assert.assertTrue(postsResponsePojo.length == 0);
                 break;
         }
@@ -61,6 +61,10 @@ public class PostsApi extends BaseService {
     @And("post ids are retrieved for username {string}")
     public void postIdsAreRetrievedForUsername(String userName) {
         postsApiIsInvokedForUsername(userName);
-        responsePostsIdRetrieval(userName);
+        if(UsersApi.userNameFoundStatus==1) {
+        responsePostsIdRetrieval("PASS",userName);
+        }else {
+        	 responsePostsIdRetrieval("FAIL",userName);
+        }
     }
 }

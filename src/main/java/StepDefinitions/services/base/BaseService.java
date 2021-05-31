@@ -14,7 +14,7 @@ public class BaseService {
     }
 
     public void setProperties(Properties properties) {
-        this.properties = properties;
+        BaseService.properties = properties;
     }
 
     public static RestDriver getRestDriver() {
@@ -22,7 +22,7 @@ public class BaseService {
     }
 
     public void setRestDriver(RestDriver restDriver) {
-        this.restDriver = restDriver;
+        BaseService.restDriver = restDriver;
     }
 
 

@@ -1,16 +1,24 @@
 package models.requests;
 
-public class PostsCreate {
+public class PostsRequestPojo {
 
     String title;
     String body;
     Integer userId;
 
-    public  PostsCreate(){
+    public  PostsRequestPojo(){
 
     }
+        
 
-    public void setTitle(String title) {
+    public PostsRequestPojo(String title, String body, Integer userId) {		
+		this.title = title;
+		this.body = body;
+		this.userId = userId;
+	}
+
+
+	public void setTitle(String title) {
         this.title = title;
     }
 
